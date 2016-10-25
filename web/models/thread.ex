@@ -60,7 +60,6 @@ defmodule SimpleForum.Thread do
   def thread_tree(thread, threads) do
     thread = thread |> Repo.preload(:comments)
 
-
     if thread.comments |> Enum.any? do
       thread.comments |> Enum.map(fn comment ->
         thread_tree(comment, threads ++ thread.comments)
