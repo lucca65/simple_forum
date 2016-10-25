@@ -1,0 +1,36 @@
+<% path = [thread_path(@conn, :new), "?id=#{@thread.id}"] |> Enum.join  %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-9">
+                <h3 class="panel-title"><%= @thread.title %></h3>
+                <%= @thread.author_email %>
+                <div class="text-muted">
+                    <%= @thread.inserted_at %>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <%= link "Reply", to: path, class: "btn btn-default pull-right" %>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <%= @thread.body %>
+    </div>
+    <panel-footer>
+        <%= if @thread.comments |> length > 0 do %>
+            <div style="margin-left: 10px">
+                <a data-toggle="collapse" data-target="#comments_<%= @thread.id %>">
+                    <h4>Comments (<%= @thread.comments |> length %>)</h4>
+                </a>
+
+                <div id="comments_<%= @thread.id %>" class="collapse">
+                    <%= for comment <- @thread.comments do %>
+                        <%= render("show.html", conn: @conn, thread: comment |> SimpleForum.Repo.preload(:comments)) %>
+                    <%= end %>
+                </div>
+            </div>
+        <% end %>
+    </panel-footer>
+</div>
+

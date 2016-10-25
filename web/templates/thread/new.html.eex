@@ -1,0 +1,11 @@
+<h2>New thread</h2>
+
+<%= if assigns[:parent] do %>
+    Responding to:
+    <b><%= @parent.title %></b>
+    <%= render "form.html", changeset: @changeset, parent: @parent, action: thread_path(@conn, :create) %>
+    <% else  %>
+    <%= render "form.html", changeset: @changeset, action: thread_path(@conn, :create) %>
+<% end %>
+
+<%= link "Back", to: thread_path(@conn, :index) %>

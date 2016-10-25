@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><%= @thread.title %></h3>
+        <%= @thread.author_email %>
+    </div>
+    <div class="panel-body">
+        <%= @thread.body %>
+    </div>
+    <panel-footer>
+    </panel-footer>
+</div>

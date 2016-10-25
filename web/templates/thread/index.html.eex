@@ -1,0 +1,29 @@
+<h2>Listing threads</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author email</th>
+      <th>Body</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for thread <- @threads do %>
+    <tr>
+      <td><%= thread.title %></td>
+      <td><%= thread.author_email %></td>
+      <td><%= thread.body %></td>
+      <td><%= thread.comments |> length %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: thread_path(@conn, :show, thread), class: "btn btn-default btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= paginate @conn, @kerosene %>
+<%= link "New thread", to: thread_path(@conn, :new) %>
