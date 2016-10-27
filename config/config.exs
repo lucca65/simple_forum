@@ -18,6 +18,11 @@ config :simple_forum, SimpleForum.Endpoint,
   pubsub: [name: SimpleForum.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Configures email stuff
+config :simple_forum, SimpleForum.Mailer,
+  adapter: Swoosh.Adapters.Sendgrid,
+  api_key: "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"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

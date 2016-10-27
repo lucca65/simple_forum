@@ -29,6 +29,10 @@ config :simple_forum, SimpleForum.Repo,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
+config :simple_forum,
+  mailgun_domain: System.get_env("MAILGUN_DOMAIN"),
+  mailgun_key: System.get_env("MAILGUN_API_KEY")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

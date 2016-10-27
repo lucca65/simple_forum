@@ -19,7 +19,7 @@ defmodule SimpleForum.Mixfile do
   def application do
     [mod: {SimpleForum, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :timex, :timex_ecto]]
+                    :phoenix_ecto, :postgrex, :timex, :timex_ecto, :swoosh]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +36,9 @@ defmodule SimpleForum.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:timex, "~> 3.0"},
      {:timex_ecto, "~> 3.0"},
+     {:mailgun, "~> 0.1.3", github: "chrismccord/mailgun"},
      {:kerosene, "~> 0.4.0"},
+     {:swoosh, "~> 0.5.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},

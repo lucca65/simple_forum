@@ -1,5 +1,11 @@
 # SimpleForum
 
+Hi! Warm welcome for you.
+
+Let's get started, do this stuff to get the app running:
+
+  * Make sure that you have Elixir installed. Instructions for that [here](http://elixir-lang.org/)
+)
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`

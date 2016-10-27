@@ -41,3 +41,8 @@ config :simple_forum, SimpleForum.Repo,
   database: "simple_forum_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Mailgun configuration
+config :simple_forum,
+  mailgun_domain: "https://api.mailgun.net/v3/app34f3e759ca0f46e59803bebec46d713f.mailgun.org",
+  mailgun_key: "key-e53b93ef966c46826777a05acf3c8026"

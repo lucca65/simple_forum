@@ -4,7 +4,11 @@ defmodule SimpleForum.Miner do
   """
 
   alias SimpleForum.Thread
+  alias SimpleForum.Mailer
 
+  @doc """
+  Stuff could be better here. It is simple for demonstration proposes
+  """
   def main do
     Thread.created_today |> Enum.map(&updates_on/1)
   end
@@ -29,7 +33,13 @@ defmodule SimpleForum.Miner do
     """
 
     # send template to all emails
+    Enum.map(emails, &(send_mail(&1, template)))
+
     {emails, template}
+  end
+
+  def send_mail(email, body) do
+    Mailer.User.notifications(email, body) |> Mailer.deliver
   end
 
   defp threads_emails(thread_tree) do
