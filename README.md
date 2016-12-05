@@ -58,4 +58,5 @@ This module does a lot more than it should, but again: _simplicitiy_. Again we c
 That's all folks!
 
 Here is a gif so we can all be happy about life.
+
 ![http://i.giphy.com/l2JhOs6DLZad0rEwo.gif](http://i.giphy.com/l2JhOs6DLZad0rEwo.gif)
